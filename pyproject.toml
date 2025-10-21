@@ -1,0 +1,14 @@
+[project]
+name = "py-scripts"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "Tammy Cravit", email = "tammy@tammymakesthings.com"},
+]
+dependencies = ["colorama>=0.4.6", "termcolor>=3.1.0"]
+requires-python = ">=3.13"
+readme = "README.md"
+license = {text = "MIT"}
+
+[tool.pdm]
+distribution = false
