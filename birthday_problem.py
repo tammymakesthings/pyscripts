@@ -177,7 +177,7 @@ class BirthdayProblem:
             print(f"{Fore.GREEN}{'*' * terminal_width}")
             print("")
             print(
-                    f"We'll run {Fore.CYAN}{self.num_trials:,d}{Fore.RESET} trials of {Fore.CYAN}{self.num_people}{Fore.RESET} people."
+                f"We'll run {Fore.CYAN}{self.num_trials:,d}{Fore.RESET} trials of {Fore.CYAN}{self.num_people}{Fore.RESET} people."
             )
         if enable_progress_messages:
             print("")
@@ -196,12 +196,13 @@ class BirthdayProblem:
                 self._successful_trials = self._successful_trials + 1
             if enable_progress_messages and ((i % batch_size) == 0):
                 progress_str = f"{i:,d}"
-                print(f"{Fore.MAGENTA}{progress_str}{Fore.RESET}...", end="", flush=True)
+                print(
+                    f"{Fore.MAGENTA}{progress_str}{Fore.RESET}...", end="", flush=True
+                )
                 progress_len = progress_len + len(progress_str) + 3
-                if progress_len >= (terminal_width-4):
+                if progress_len >= (terminal_width - 4):
                     print("")
-                    progress_len=0
-
+                    progress_len = 0
 
         end_time = time.time()
 
@@ -219,7 +220,7 @@ class BirthdayProblem:
             )
             print("")
             print(
-                    f"In {Fore.CYAN}{self.num_trials:,d}{Fore.RESET} trials, {Fore.CYAN}{self.successful_trials:,d}{Fore.RESET} groups had at least one matching birthday."
+                f"In {Fore.CYAN}{self.num_trials:,d}{Fore.RESET} trials, {Fore.CYAN}{self.successful_trials:,d}{Fore.RESET} groups had at least one matching birthday."
             )
             print(
                 f"That's {Fore.CYAN}{self.percent_matching:.3f}%{Fore.RESET} of the time."
@@ -241,7 +242,7 @@ if __name__ == "__main__":
     ap = ArgumentParser(
         prog="BirthdayProblem",
         description="Birthday problem simulation in Python",
-        epilog="See <https://en.wikipedia.org/wiki/Birthday_problem> for more.",
+        epilog="Tammy Cravit - tammy@tammymakesthings.com - 2025/10/21",
     )
     ap.add_argument(
         "-p",
