@@ -37,7 +37,6 @@ class BirthdayProblem:
     def num_people(self, new_value: int) -> None:
         if not (isinstance(new_value, int) and new_value > 0):
             raise ValueError("num_people must be a positive integer")
-        print(f"setting num_people to {new_value}")
         self._num_people = new_value
 
     @property
@@ -48,7 +47,6 @@ class BirthdayProblem:
     def num_trials(self, new_value: int) -> None:
         if not (isinstance(new_value, int) and new_value > 0):
             raise ValueError("num_trials must be a positive integer")
-        print(f"Setting num_trials to {new_value}...")
         self._num_trials = new_value
 
     @property
@@ -179,7 +177,7 @@ class BirthdayProblem:
             print(f"{Fore.GREEN}{'*' * terminal_width}")
             print("")
             print(
-                f"We'll run {Fore.CYAN}{self.num_trials}{Fore.RESET} trials of {Fore.CYAN}{self.num_people}{Fore.RESET} people."
+                    f"We'll run {Fore.CYAN}{self.num_trials:,d}{Fore.RESET} trials of {Fore.CYAN}{self.num_people}{Fore.RESET} people."
             )
         if enable_progress_messages:
             print("")
@@ -195,7 +193,7 @@ class BirthdayProblem:
             if self.matching_birthdays(birthdays):
                 self._successful_trials = self._successful_trials + 1
             if enable_progress_messages and ((i % batch_size) == 0):
-                print(f"{Fore.MAGENTA}{i}{Fore.RESET}...", end="", flush=True)
+                print(f"{Fore.MAGENTA}{i:,d}{Fore.RESET}...", end="", flush=True)
 
         end_time = time.time()
 
@@ -213,7 +211,7 @@ class BirthdayProblem:
             )
             print("")
             print(
-                f"In {Fore.CYAN}{self.num_trials}{Fore.RESET} trials, {Fore.CYAN}{self.successful_trials}{Fore.RESET} groups had at least one matching birthday."
+                    f"In {Fore.CYAN}{self.num_trials:,d}{Fore.RESET} trials, {Fore.CYAN}{self.successful_trials:,d}{Fore.RESET} groups had at least one matching birthday."
             )
             print(
                 f"That's {Fore.CYAN}{self.percent_matching:.3f}%{Fore.RESET} of the time."
