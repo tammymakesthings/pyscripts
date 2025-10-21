@@ -185,6 +185,8 @@ class BirthdayProblem:
 
         start_time = time.time()
 
+        progress_len = 0
+
         batch_size = self.num_trials / 10
         for i in range(self.num_trials + 1):
             birthdays = self.generate_birthdays()
@@ -193,7 +195,13 @@ class BirthdayProblem:
             if self.matching_birthdays(birthdays):
                 self._successful_trials = self._successful_trials + 1
             if enable_progress_messages and ((i % batch_size) == 0):
-                print(f"{Fore.MAGENTA}{i:,d}{Fore.RESET}...", end="", flush=True)
+                progress_str = f"{i:,d}"
+                print(f"{Fore.MAGENTA}{progress_str}{Fore.RESET}...", end="", flush=True)
+                progress_len = progress_len + len(progress_str) + 3
+                if progress_len >= (terminal_width-4):
+                    print("")
+                    progress_len=0
+
 
         end_time = time.time()
 
